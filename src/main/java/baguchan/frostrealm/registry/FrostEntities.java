@@ -32,6 +32,7 @@ public class FrostEntities {
     public static final Supplier<EntityType<SnowPileQuail>> SNOWPILE_QUAIL = ENTITIES.register("snowpile_quail", () -> EntityType.Builder.of(SnowPileQuail::new, MobCategory.CREATURE).sized(0.6F, 0.6F).eyeHeight(0.4F).build(prefix("snowpile_quail")));
     public static final Supplier<EntityType<CrystalFox>> CRYSTAL_FOX = ENTITIES.register("crystal_fox", () -> EntityType.Builder.of(CrystalFox::new, MobCategory.CREATURE).sized(0.6F, 0.7F).eyeHeight(0.4F).clientTrackingRange(8).build(prefix("crystal_fox")));
     public static final Supplier<EntityType<SnowMole>> SNOW_MOLE = ENTITIES.register("snow_mole", () -> EntityType.Builder.of(SnowMole::new, MobCategory.CREATURE).sized(0.6F, 0.6F).eyeHeight(0.3F).clientTrackingRange(8).immuneTo(Blocks.POWDER_SNOW).immuneTo(Blocks.POWDER_SNOW_CAULDRON).build(prefix("snow_mole")));
+    public static final Supplier<EntityType<SnowLeopard>> SNOW_LEOPARD = ENTITIES.register("snow_leopard", () -> EntityType.Builder.of(SnowLeopard::new, MobCategory.CREATURE).sized(0.7F, 0.7F).eyeHeight(0.4F).clientTrackingRange(8).immuneTo(Blocks.POWDER_SNOW).immuneTo(Blocks.POWDER_SNOW_CAULDRON).build(prefix("snow_leopard")));
     public static final Supplier<EntityType<Seal>> SEAL = ENTITIES.register("seal", () -> EntityType.Builder.of(Seal::new, MobCategory.CREATURE).sized(0.95F, 0.8F).eyeHeight(0.45F).clientTrackingRange(10).build(prefix("seal")));
 
     public static final Supplier<EntityType<Yeti>> YETI = ENTITIES.register("yeti", () -> EntityType.Builder.of(Yeti::new, MobCategory.CREATURE).sized(1.6F, 1.95F).eyeHeight(1.75F).build(prefix("yeti")));
@@ -57,6 +58,7 @@ public class FrostEntities {
         event.put(MARMOT.get(), Marmot.createAttributes().build());
         event.put(SNOWPILE_QUAIL.get(), SnowPileQuail.createAttributes().build());
         event.put(CRYSTAL_FOX.get(), CrystalFox.createAttributes().build());
+        event.put(SNOW_LEOPARD.get(), SnowLeopard.createAttributes().build());
         event.put(SNOW_MOLE.get(), SnowMole.createAttributes().build());
         event.put(SEAL.get(), Seal.createAttributes().build());
         event.put(BUSH_BUG.get(), BushBug.createAttributes().build());
@@ -78,6 +80,7 @@ public class FrostEntities {
 
         event.register(SNOWPILE_QUAIL.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnowPileQuail::checkFrostAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(CRYSTAL_FOX.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, CrystalFox::checkFrostAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
+        event.register(SNOW_LEOPARD.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnowLeopard::checkFrostAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(SNOW_MOLE.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, SnowMole::checkSnowMoleSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(SEAL.get(), SpawnPlacementTypes.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Seal::checkSealSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
         event.register(BUSH_BUG.get(), SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, FrostAnimal::checkFrostAnimalSpawnRules, RegisterSpawnPlacementsEvent.Operation.REPLACE);
